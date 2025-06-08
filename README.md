@@ -9,6 +9,8 @@ A terminal-themed tech support portfolio that includes:
 - Terminal-style navigation through About, Skills, Projects, and Repairs
 Work In Progress!
 
+![WebSite_View](image.png)
+
 1. Start outlining the web build project using this README file.
 2. Start building the boiler plate for out html file.
 3. HTML: Setup the boiler plate and the outline of the Terminal UI. 
