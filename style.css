@@ -1,0 +1,194 @@
+/* 🔹 Reset Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  color: #00ff90;
+  font-family: 'Courier New', monospace;
+  padding: 20px;
+}
+
+/* 🔹 Terminal Container */
+#terminalWrapper {
+  position: relative;
+  border: 2px solid #00ff90;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #00ff90;
+  margin-bottom: 30px;
+}
+
+/* 🔹 Terminal Output */
+#terminalOutput {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #121212;
+  height: 450px;
+  overflow-y: auto;
+  padding-right: 120px;
+}
+
+/* 🔹 Terminal Button */
+#clearTerminal {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #00ff90;
+  color: #121212;
+  border: none;
+  padding: 6px 12px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #00ff90;
+  z-index: 10;
+}
+
+#clearTerminal:hover {
+  background-color: #00cc70;
+}
+
+/* 🔹 Directory & File Interactions */
+.directory {
+  color: #00bfff;
+  cursor: pointer;
+}
+
+.file {
+  color: #00ffff;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-left: 20px;
+}
+
+/* 🔹 Popup Viewer */
+.popup {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  background-color: #1e1e1e;
+  color: #00ff90;
+  border: 2px solid #00ff90;
+  border-radius: 6px;
+  z-index: 999;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 10px #00ff90;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00ff90;
+  color: #121212;
+  padding: 8px 12px;
+  border-bottom: 2px solid #00ff90;
+  font-weight: bold;
+}
+
+.popup-title {
+  font-size: 0.95rem;
+}
+
+.popup-close {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #121212;
+  font-weight: bold;
+}
+
+.popup-content {
+  padding: 12px;
+  font-size: 0.95rem;
+  white-space: pre-line;
+}
+
+/* 🔹 Panel Row Layout (Badges + Meter + ASCII) */
+#panelWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+/* 🔹 Panel Boxes Shared Style */
+.panelBox {
+  width: 250px;
+  min-height: 200px;
+  background-color: #1e1e1e;
+  border: 2px solid #00ff90;
+  padding: 16px;
+  border-radius: 6px;
+  color: #00ff90;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 10px #00ff90;
+}
+
+/* 🔹 Panel Headings */
+.panelBox h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #00ff90;
+  padding-bottom: 4px;
+  text-align: center;
+}
+
+/* 🔹 Badge Icons */
+.badge-icon {
+  font-size: 1.5rem;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* 🔹 Level Bars */
+.level-bar {
+  background-color: #00ff90;
+  height: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 6px #00ff90;
+}
+
+/* 🔹 ASCII Box (inherits panelBox styles) */
+#asciiBox pre {
+  font-size: 0.85rem;
+  white-space: pre;
+  text-align: center;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

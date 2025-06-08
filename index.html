@@ -1,13 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JAC Terminal Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" /> 
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <!-- 🔹 Terminal Section -->
+    <div id="terminalWrapper">
+        <div id="terminalOutput">
+            <p>jac@techhost:~$ cd home</p>
+            <p>jac@techhost:/home$ ls</p>
+            <ul>
+                <li><span class="directory">About/</span></li>
+                <li><span class="directory">Skills/</span></li>
+                <li><span class="directory">Content/</span></li>
+            </ul>
+            <p>jac@techhost:/home$<span class="cursor">_</span></p>
+        </div>
+
+        <!-- 🔹 Terminal Button -->
+        <button id="clearTerminal">Clear Terminal</button>
+    </div>
+
+    <!-- 🔻 Panel Row: Badges, Level Meter, ASCII Box -->
+    <div id="panelWrapper">
+
+        <!-- 🔸 Badge Panel -->
+        <div class="panelBox" id="badgePanel">
+            <h3>Badges Earned</h3>
+            <p><span class="badge-icon"></span> Linux Builder</p>
+            <p><span class="badge-icon"></span> Windows Tech</p>
+            <p><span class="badge-icon"></span> Terminal Master</p>
+        </div>
+
+        <!-- 🔸 ASCII Logo Box -->
+        <div class="panelBox" id="asciiBox">
+            <pre>
+*---------------------------*
+|    88      88        88   |
+|    88    88  88    88  88 |
+|    88    88  88    88     |
+|    99    999999    99     |
+|88  99    99  99    99     |
+|88  88    88  88    88  88 |
+|  88      88  88      88   |
+*---------------------------*
+|      TECHKNOWLEDGE-Y      |
+*---------------------------*
+      </pre>
+        </div>
+
+        <!-- 🔸 Level Meter -->
+        <div class="panelBox" id="levelMeter">
+            <h3>Level Up Meter</h3>
+            <p>Linux</p>
+            <div class="level-bar" style="width: 70%;"></div>
+            <p>Windows</p>
+            <div class="level-bar" style="width: 40%;"></div>
+            <p>Terminal</p>
+            <div class="level-bar" style="width: 60%;"></div>
+        </div>
+    </div>
+
+    <!-- 🔹 Popup Viewer -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-header">
+            <span class="popup-title">bio.txt — read-only</span>
+            <button class="popup-close" id="closePopup">X</button>
+        </div>
+        <div class="popup-content" id="popupContent"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
