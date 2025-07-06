@@ -219,8 +219,8 @@ ul li {
 }
 
 .panelBox {
-  width: 250px;
-  min-height: 220px;
+  width: 300px;
+  height: 220px;
   background-color: #1e1e1e;
   border: 2px solid #00ff90;
   padding: 16px;
@@ -272,3 +272,33 @@ ul li {
     visibility: hidden;
   }
 }
+
+/* Animate the Panel Boxes- Delay */
+.panelBox {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: staggered delay for each box */
+#badgePanel {
+  --delay: 0.2s;
+}
+
+#asciiBox {
+  --delay: 0.4s;
+}
+
+#levelMeter {
+  --delay: 0.6s;
+}
+
+

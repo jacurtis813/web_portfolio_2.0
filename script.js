@@ -386,13 +386,14 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
   function renderMainTerminal() {
     const mainTerminalContent = [
       "jac@techhost:~$ cd home",
+      ">>>",
       "jac@techhost:/home$ cat site_nav.txt",
       "",
-      "To navigate this site, select a directory (folder name) to open and view resources.",
+      "To navigate this site, select a directory (folder name) to open and view contents.",
       "Click the \"Clear Terminal\" button to return to this home screen.",
       "",
-      "Thanks for stopping by! 😄",
-      "-jc",
+      "Thanks for stopping by!",
+      ">>>",
       "",
       "jac@techhost:/home$ ls",
     ];
@@ -532,7 +533,7 @@ course_certs>
       popupTitle.textContent = `${fileName} — browser`;
       popupContent.innerHTML = `
 <p style="text-align:center;"><strong>Web Portfolio Preview</strong></p>
-<img src="web_portfolio.png" alt="Web Portfolio Preview" />
+<img src="/Assets/web_portfolio.png" alt="Web Portfolio Preview" />
 <p style="text-align:center;">
   <a href="https://www.jactechknowledge-y.com/" target="_blank" style="color:#00ff90; text-decoration:underline;">
     🖥️ Open Full Website in New Tab
