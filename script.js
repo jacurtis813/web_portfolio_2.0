@@ -533,7 +533,7 @@ course_certs>
       popupTitle.textContent = `${fileName} — browser`;
       popupContent.innerHTML = `
 <p style="text-align:center;"><strong>Web Portfolio Preview</strong></p>
-<img src="/Assets/web_portfolio.png" alt="Web Portfolio Preview" />
+<img src="Assets/web_portfolio.png" alt="Web Portfolio Preview" />
 <p style="text-align:center;">
   <a href="https://www.jactechknowledge-y.com/" target="_blank" style="color:#00ff90; text-decoration:underline;">
     🖥️ Open Full Website in New Tab

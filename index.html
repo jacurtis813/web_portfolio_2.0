@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <!--Terminal Header -->
+  <!-- 🔹 Terminal Header -->
   <div id="terminalHeader">
     <div class="window-buttons">
       <span class="dot red"></span>
@@ -19,26 +19,38 @@
     <div class="terminal-title">jac_terminal_portfolio</div>
   </div>
 
-  <!--Terminal Section -->
-  <div id="terminalWrapper">
-    <div id="terminalOutput"></div>
-
-    <!--Terminal Button -->
-    <button id="clearTerminal">Clear Terminal</button>
-  </div>
-
-  <!--Panel Row: Badges, Level Meter, ASCII Box -->
-  <div id="panelWrapper">
-    <div class="panelBox" id="badgePanel">
-      <h3>Badges Earned</h3>
-      <p><span class="badge-icon">💻</span> Terminal Titan</p>
-      <p><span class="badge-icon">🐧</span> Love of Linux</p>
-      <p><span class="badge-icon">🧙‍♂️</span> Windows Wizard</p>
-      <p><span class="badge-icon">🍎</span> Mastering Mac</p>
+  <!-- 🔹 Main Content Wrapper -->
+  <div id="contentWrapper">
+    <!-- 🔸 Terminal Window -->
+    <div id="terminalWrapper">
+      <div id="terminalOutput"></div>
+      <button id="clearTerminal">Clear Terminal</button>
     </div>
 
-    <div class="panelBox" id="asciiBox">
-      <pre>
+    <!-- 🔸 Side Panel -->
+    <div id="panelWrapper">
+      <!-- ✅ Optional: Uncomment to enable Badges Panel -->
+      <!--
+      <div class="panelBox" id="badgePanel">
+        <h3>Badges Earned</h3>
+        <p><span class="badge-icon">💻</span> Terminal Titan</p>
+        <p><span class="badge-icon">🐧</span> Love of Linux</p>
+        <p><span class="badge-icon">🧙‍♂️</span> Windows Wizard</p>
+        <p><span class="badge-icon">🍎</span> Mastering Mac</p>
+      </div>
+      -->
+
+      <div class="panelBox" id="badgePanel">
+        <h3>Badges Earned</h3>
+        <p><span class="badge-icon">💻</span> Terminal Titan</p>
+        <p><span class="badge-icon">🐧</span> Love of Linux</p>
+        <p><span class="badge-icon">🧙‍♂️</span> Windows Wizard</p>
+        <p><span class="badge-icon">🍎</span> Mastering Mac</p>
+      </div>
+
+      <!-- 
+      <div class="panelBox" id="asciiBox">
+        <pre>
 *---------------------------*
 |    88      88        88   |
 |    88    88  88    88  88 |
@@ -50,23 +62,24 @@
 *---------------------------*
 |      TECHKNOWLEDGE-Y      |
 *---------------------------*
-      </pre>
-    </div>
+        </pre>
+      </div>-->
 
-    <div class="panelBox" id="levelMeter">
-      <h3>Level Up Meter</h3>
-      <p>Terminal</p>
-      <div class="level-bar" style="width: 45%;"></div>
-      <p>Linux</p>
-      <div class="level-bar" style="width: 35%;"></div>
-      <p>Windows</p>
-      <div class="level-bar" style="width: 65%;"></div>
-      <p>macOS</p>
-      <div class="level-bar" style="width: 40%;"></div>
+      <div class="panelBox" id="levelMeter">
+        <h3>Level Up Meter</h3>
+        <p>Terminal</p>
+        <div class="level-bar" style="width: 45%;"></div>
+        <p>Linux</p>
+        <div class="level-bar" style="width: 35%;"></div>
+        <p>Windows</p>
+        <div class="level-bar" style="width: 65%;"></div>
+        <p>macOS</p>
+        <div class="level-bar" style="width: 40%;"></div>
+      </div>
     </div>
   </div>
 
-  <!--Popup Viewer -->
+  <!-- 🔹 Popup Viewer -->
   <div id="popup" class="popup hidden">
     <div class="popup-header">
       <span class="popup-title">file.txt — nano</span>
