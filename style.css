@@ -1,4 +1,4 @@
-/* 🔹 Reset Defaults */
+/* Reset Defaults */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,52 @@ body {
   padding: 20px;
 }
 
-/* 🔹 Terminal Container */
+/* Terminal Header */
+#terminalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  border: 2px solid #00ff90;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  padding: 6px 12px;
+  box-shadow: 0 0 6px #00ff90;
+  margin-bottom: 0px;
+}
+
+.window-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.window-buttons .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.red {
+  background-color: #ff5f56;
+}
+
+.dot.yellow {
+  background-color: #ffbd2e;
+}
+
+.dot.green {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  color: #00ff90;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Terminal Container */
 #terminalWrapper {
   position: relative;
   border: 2px solid #00ff90;
@@ -20,21 +65,21 @@ body {
   border-radius: 6px;
   box-shadow: 0 0 10px #00ff90;
   margin-bottom: 30px;
+  background-color: #121212;
 }
 
-/* 🔹 Terminal Output */
+/* Terminal Output */
 #terminalOutput {
   position: relative;
   z-index: 1;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #121212;
   height: 450px;
   overflow-y: auto;
   padding-right: 120px;
 }
 
-/* 🔹 Terminal Button */
+/* Terminal Button */
 #clearTerminal {
   position: absolute;
   bottom: 20px;
@@ -55,7 +100,12 @@ body {
   background-color: #00cc70;
 }
 
-/* 🔹 Directory & File Interactions */
+#clearTerminal:focus {
+  outline: none;
+  box-shadow: 0 0 6px #00ff90;
+}
+
+/* Directory & File Interactions */
 .directory {
   color: #00bfff;
   cursor: pointer;
@@ -75,13 +125,17 @@ ul li {
   margin-left: 20px;
 }
 
-/* 🔹 Popup Viewer */
+/* Popup Viewer (Responsive + Scrollable) */
 .popup {
   position: fixed;
-  top: 100px;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
+  width: 80%;
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
   background-color: #1e1e1e;
   color: #00ff90;
   border: 2px solid #00ff90;
@@ -104,6 +158,9 @@ ul li {
   padding: 8px 12px;
   border-bottom: 2px solid #00ff90;
   font-weight: bold;
+  position: sticky;
+  /* Keep header visible when scrolling */
+  top: 0;
 }
 
 .popup-title {
@@ -122,10 +179,36 @@ ul li {
 .popup-content {
   padding: 12px;
   font-size: 0.95rem;
-  white-space: pre-line;
+  white-space: pre-wrap;
+  /* Wrap text properly */
+  overflow-wrap: break-word;
 }
 
-/* 🔹 Panel Row Layout (Badges + Meter + ASCII) */
+.popup-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #00ff90;
+}
+
+/* Nano-style Popup */
+.popup.nano-mode {
+  background-color: #000000;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.popup.nano-mode .popup-header {
+  background-color: #00ff00;
+  color: #000000;
+}
+
+.popup.nano-mode .popup-content {
+  color: #00ff00;
+}
+
+/* Panel Row Layout */
 #panelWrapper {
   display: flex;
   justify-content: center;
@@ -135,10 +218,9 @@ ul li {
   flex-wrap: wrap;
 }
 
-/* 🔹 Panel Boxes Shared Style */
 .panelBox {
   width: 250px;
-  min-height: 200px;
+  min-height: 220px;
   background-color: #1e1e1e;
   border: 2px solid #00ff90;
   padding: 16px;
@@ -146,9 +228,11 @@ ul li {
   color: #00ff90;
   font-family: 'Courier New', monospace;
   box-shadow: 0 0 10px #00ff90;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* 🔹 Panel Headings */
 .panelBox h3 {
   font-size: 1.1rem;
   margin-bottom: 8px;
@@ -157,14 +241,12 @@ ul li {
   text-align: center;
 }
 
-/* 🔹 Badge Icons */
 .badge-icon {
   font-size: 1.5rem;
   margin-right: 6px;
   vertical-align: middle;
 }
 
-/* 🔹 Level Bars */
 .level-bar {
   background-color: #00ff90;
   height: 12px;
@@ -173,10 +255,8 @@ ul li {
   box-shadow: 0 0 6px #00ff90;
 }
 
-/* 🔹 ASCII Box (inherits panelBox styles) */
 #asciiBox pre {
   font-size: 0.85rem;
-  white-space: pre;
   text-align: center;
   line-height: 1.2;
   margin: 0;
