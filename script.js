@@ -1,3 +1,4 @@
+//start of file -- js -- 
 document.addEventListener('DOMContentLoaded', () => {
   const terminal = document.getElementById('terminalOutput');
   const clearButton = document.getElementById('clearTerminal');
@@ -5,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const popupTitle = document.querySelector('.popup-title');
   const popupContent = document.getElementById('popupContent');
   const closePopupBtn = document.getElementById('closePopup');
-
+// this is for the file contents -- resources content
   const directoryStructure = {
     resources: [
       {
@@ -362,17 +363,19 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
   } else {
     renderMainTerminal();
   }
-
+// nano function to mock opening the txt file(s) p1
   clearButton.addEventListener('click', () => {
     sessionStorage.clear();
     location.reload();
   });
 
+// nano function to mock opening the txt file(s) p2
   closePopupBtn.addEventListener('click', () => {
     popup.classList.add('hidden');
     popup.classList.remove('nano-mode');
   });
 
+// boot-up sequence
   function playBootSequence() {
     const bootMessages = [
       "[ OK ] Initializing system services...",
@@ -382,7 +385,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
     ];
     typeLines(bootMessages, renderMainTerminal);
   }
-
+// arrinving to the site notation -- navigation output -- 
   function renderMainTerminal() {
     const mainTerminalContent = [
       "jac@techhost:~$ cd home",
@@ -397,6 +400,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       "",
       "jac@techhost:/home$ ls",
     ];
+    // terminal output -- folders (dir) -- 
     terminal.innerHTML = "";
     typeLines(mainTerminalContent, () => {
       const ul = document.createElement('ul');
@@ -409,7 +413,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
         <li><span>site_nav.txt</span></li>
       `;
       terminal.appendChild(ul);
-
+// cursor blinking animation
       const prompt = document.createElement('p');
       prompt.innerHTML = `jac@techhost:/home$ <span class="cursor">_</span>`;
       terminal.appendChild(prompt);
@@ -430,7 +434,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       }
     });
   }
-
+// opening folders (dir) -- single + multi files -- 
   function openSingleFileDirectory(folder) {
     const commands = [
       `jac@techhost:/home$ cd ${folder}`,
@@ -471,7 +475,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       bindFileClicks(folder);
     });
   }
-
+// pop-up window in termina 
   function bindFileClicks(folder) {
     terminal.querySelectorAll('.file').forEach(fileEl => {
       fileEl.addEventListener('click', () => {
@@ -481,7 +485,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       });
     });
   }
-
+// about-me, tech skills, and web portfolio
   function openPopup(folder, fileName) {
     if (folder === 'about_me') {
       popup.classList.add('nano-mode');

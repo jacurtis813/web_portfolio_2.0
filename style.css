@@ -7,8 +7,7 @@
 
 html,
 body {
-  height: 90%;
-  /* Allow full height reference for flex */
+  height: 100%;
 }
 
 body {
@@ -16,7 +15,7 @@ body {
   color: #00ff90;
   font-family: 'Courier New', monospace;
   padding: 0px;
-  min-height: 90%;
+  min-height: 100%;
 }
 
 /* Terminal Header */
@@ -33,6 +32,7 @@ body {
   margin-bottom: 0px;
 }
 
+/* Window + Buttons*/
 .window-buttons {
   display: flex;
   gap: 6px;
@@ -57,6 +57,7 @@ body {
   background-color: #27c93f;
 }
 
+/* window-terminal title*/
 .terminal-title {
   color: #00ff90;
   font-family: 'Courier New', monospace;
@@ -64,7 +65,7 @@ body {
   font-weight: bold;
 }
 
-/* 🔹 Content Wrapper (Parent Flexbox) */
+/* Content Wrapper (Parent Flexbox) */
 #contentWrapper {
   display: flex;
   height: calc(100vh - 60px);
