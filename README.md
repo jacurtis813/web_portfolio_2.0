@@ -18,7 +18,7 @@ A terminal-themed tech support portfolio that includes:
 - CSS  
 - JavaScript  
 
-![WebSite_View](image.png)
+![WebSite_View](Assets/image2.png)
 
 ---
 
