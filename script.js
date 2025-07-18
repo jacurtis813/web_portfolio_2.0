@@ -539,7 +539,7 @@ course_certs>
 <p style="text-align:center;"><strong>Web Portfolio Preview</strong></p>
 <img src="Assets/web_portfolio.png" alt="Web Portfolio Preview" />
 <p style="text-align:center;">
-  <a href="https://www.jactechknowledge-y.com/" target="_blank" style="color:#00ff90; text-decoration:underline;">
+  <a href="https://www.jactechknowledge-y.com/" target="_blank" style="color:#00ff90; text-decoration:none;">
     🖥️ Open Full Website in New Tab
   </a>
 </p>`;
