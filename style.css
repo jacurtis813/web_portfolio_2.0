@@ -264,6 +264,13 @@ ul li {
   vertical-align: middle;
 }
 
+/* omit for now
+#levelMeter {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+} */
+
 .level-bar {
   background-color: #00ff90;
   height: 12px;
@@ -275,9 +282,13 @@ ul li {
 #asciiBox pre {
   font-size: 0.85rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   line-height: 1.65;
   margin: 0;
-  padding: 5;
+  padding-top: 0px;
+  height: 100%
 }
 
 /* Cursor Blink Animation */

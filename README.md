@@ -122,14 +122,9 @@ A terminal-themed tech support portfolio that includes:
 - Popup viewer with `nano` and browser preview modes.  
 - Badges and level-up meters to gamify skills.  
 - “Clear Terminal” button to restart session.  
+- ASCII Logo easter egg. Click the ASCII art to locate.
 
----
-
-## Planned Features
-- [ ] Simulated command-line typing (support `cd`, `ls`, `cat` commands).  
-- [ ] Unlock badges dynamically based on user interaction.  
-- [ ] Mobile-first responsive design.  
-- [ ] Dark/light theme toggle.  
+--- 
 
 ---
 

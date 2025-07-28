@@ -6,6 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const popupTitle = document.querySelector('.popup-title');
   const popupContent = document.getElementById('popupContent');
   const closePopupBtn = document.getElementById('closePopup');
+  const asciiBox = document.getElementById('asciiBox');
+// easter egg added for fun- make me a sandwich
+  asciiBox.addEventListener('click', () => {
+    terminal.innerHTML += `
+      <di>jac@techhost:~$ sudo rick_rolled</div>
+      <div>[ OK ] Never gonna give you up...
+    `;
+    terminal.scrollTop = terminal.scrollHeight;
+
+    const audio = document.getElementById('rickAudio');
+    if(audio) {
+      audio.currentTime = 0; // Restart if clicked again
+      audio.play();
+    }
+  });
+
 // this is for the file contents -- resources content
   const directoryStructure = {
     resources: [
