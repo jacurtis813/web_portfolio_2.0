@@ -231,7 +231,7 @@ ul li {
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 40px;
   min-width: 30%;
 }
 
@@ -279,9 +279,9 @@ ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 1.65;
+  line-height: 1.25;
   margin: 0;
-  padding-top: 0px;
+  padding-top: 15px;
   height: 100%
 }
 
@@ -315,7 +315,8 @@ ul li {
   #panelWrapper {
     flex-direction: row;
     /* Panels side-by-side below terminal */
-    gap: 10px;
+    gap: 40px;
+    /* Creates equal gap on mobile */
   }
 
   .panelBox {
