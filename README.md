@@ -4,26 +4,26 @@ Create a personal web portfolio from scratch.
 ---
 
 ## Jac Terminal Portfolio (web_portfolio_2.0)
-A terminal-themed tech support portfolio that includes:  
-- Linux, Windows, and repair badges  
-- Self-Created ASCII Art "JAC" logo  
-- Level-up meter showing skill progress  
-- Terminal-style navigation through About, Skills, Projects, and Resources  
-- Clear Terminal Button and Window Panel (Terminal UI Feel)  
+A terminal-themed tech support portfolio that includes:   
+- Self-Created ASCII Art "JAC" logo
+- Level-up meter showing skill progress
+- Terminal-style navigation through About, Skills, Projects, and Resources.
+- Clear Terminal Button and Window Panel (Terminal UI Feel)
+- Linux, Windows, and repair badges (removed-- for now. May add back in later.)
 
 ---
 
 ## 🛠 Technologies
-- HTML  
-- CSS  
-- JavaScript  
+- HTML
+- CSS 
+- JavaScript
 
 ![WebSite_View](Assets/image2.png)
 
 ---
 
 ## Development Journey
-- Testing this out.
+- Just a creative project idea that I wanted to test out.
 ---
 
 ### Phase 1: The Start
@@ -31,25 +31,25 @@ A terminal-themed tech support portfolio that includes:
    - Created project folder: `index.html`, `style.css`, `script.js`, and `README.md`.  
 
 2. **Created Custom ASCII Art Logo**
-   - Designed “JAC TechKnowledge-y” logo in Notepad.  
-   - Added as part of the UI using a `<pre>` block for proper formatting.  
+   - Designed “JAC Terminal” ASCII logo in Notepad.
+   - Added as part of the UI using a `<pre>` block for proper formatting.
 
 3. **HTML: Initial Framework**
    - Built base layout for the terminal UI container (`#terminalWrapper`).  
    - Added `#panelWrapper` with three panel boxes:
-     - **Badges Earned**
      - **ASCII Art Logo**
      - **Level-Up Meter**
+     - **Badges Earned** (removed-- for now. Create a cleaner UI).
 
 4. **CSS: Initial Styling**
    - Applied dark theme background (`#121212`) and neon green text (`#00ff90`).  
    - Added glowing borders and box shadows for retro terminal feel.  
-   - Styled panel boxes for consistent sizing and alignment.  
+   - Styled panel boxes for consistent sizing and alignment.
 
 5. **Terminal Header UI**
-   - Added fake macOS-style window buttons (🔴 🟡 🟢).  
-   - Inserted a terminal title: `jac_terminal_portfolio`.  
-   - Styled header and buttons to match the terminal aesthetic.  
+   - Added fake macOS-style window buttons (🔴 🟡 🟢).
+   - Inserted a terminal title: `jac_terminal_portfolio`.
+   - Styled header and buttons to match the terminal aesthetic.
 
 6. **Developed Popup Viewer**
    - **HTML**: Created popup structure to mimic opening a file or document.  
@@ -106,13 +106,13 @@ A terminal-themed tech support portfolio that includes:
    - Wrote detailed resource files:  
      - OS comparisons  
      - CMD/PowerShell cheat sheets  
-     - Linux commands  
-   - Designed badges (💻 Terminal Titan, 🐧 Love of Linux, 🧙‍♂️ Windows Wizard).  
+     - Linux commands
    - Added level-up meters showing skill progress.  
+   - Designed badges (💻 Terminal Titan, 🐧 Love of Linux, 🧙‍♂️ Windows Wizard). (removed-- for now).
 
 3. **Popup Viewer Polish**
-   - Styled modal headers with sticky titles and close buttons.  
-   - Added browser preview mode for `web_portfolio.html`.  
+   - Styled modal headers with sticky titles and close buttons.
+   - Added browser preview mode for `web_portfolio.html`.
 
 ---
 
@@ -120,7 +120,7 @@ A terminal-themed tech support portfolio that includes:
 - Retro terminal UI with boot sequence and blinking cursor.  
 - Clickable directories and files for navigation.  
 - Popup viewer with `nano` and browser preview modes.  
-- Badges and level-up meters to gamify skills.  
+- Badges and level-up meters to gamify skills.
 - “Clear Terminal” button to restart session.  
 - ASCII Logo easter egg. Click the ASCII art to locate.
 
@@ -129,5 +129,6 @@ A terminal-themed tech support portfolio that includes:
 ---
 
 ## About Me
-Hi, I’m Justin Curtis. I love building, tinkering, and learning—whether it’s hands-on hardware repairs, exploring new software, or crafting tools and workflows. This portfolio started as a fun side project and grew into my digital playground for sharing skills and ideas.  
+Hi, I’m Justin Curtis. I am a tech-nerd, and I have an absolute passion for creating, building and tinkering. Taking an idea and bring it to life. jac_terminal_portfolio is just a result of my own curiosity and fun.
 
+- JAC

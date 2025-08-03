@@ -264,12 +264,6 @@ ul li {
   vertical-align: middle;
 }
 
-/* omit for now
-#levelMeter {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-} */
 
 .level-bar {
   background-color: #00ff90;
@@ -290,28 +284,6 @@ ul li {
   padding-top: 0px;
   height: 100%
 }
-
-/* Crawling Worm 
-.worm-track {
-  position: relative;
-  width: 100%;
-  height: 20px;
-  overflow: hidden;
-}
-
-.worm-dot {
-  position: absolute;
-  color: #00ff90;
-  animation: crawl 12s linear infinite;
-  font-family: monospace;
-  font-size: 1.2em;
-}
-
-@keyframes crawl {
-  0% { left: 0; }
-  50% { left: 90%; }
-  100% { left: 0; }
-}*/
 
 /* Cursor Blink Animation */
 .cursor {
