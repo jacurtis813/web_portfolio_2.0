@@ -328,10 +328,10 @@ ul li {
 
 @media screen and (max-width: 768px) {
   #terminalWrapper {
-    height: 300px;
-    /* Fixed height on mobile */
+    /* height: 300px;
+    Fixed height on mobile */
     overflow-y: auto;
-    /* Scroll content inside */
+    
   }
 }
 
