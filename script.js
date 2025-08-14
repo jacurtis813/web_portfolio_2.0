@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const popupContent = document.getElementById('popupContent');
   const closePopupBtn = document.getElementById('closePopup');
   const asciiBox = document.getElementById('asciiBox');
-// easter egg added for fun- make me a sandwich
+  // easter egg added for fun- make me a sandwich
   asciiBox.addEventListener('click', () => {
     terminal.innerHTML += `
       <di>jac@techhost:~$ sudo rick_rolled</div>
@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     terminal.scrollTop = terminal.scrollHeight;
 
     const audio = document.getElementById('rickAudio');
-    if(audio) {
+    if (audio) {
       audio.currentTime = 0; // Restart if clicked again
       audio.play();
     }
   });
 
-// this is for the file contents -- resources content
+  // this is for the file contents -- resources content
   const directoryStructure = {
     resources: [
       {
@@ -379,19 +379,19 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
   } else {
     renderMainTerminal();
   }
-// nano function to mock opening the txt file(s) p1
+  // nano function to mock opening the txt file(s) p1
   clearButton.addEventListener('click', () => {
     sessionStorage.clear();
     location.reload();
   });
 
-// nano function to mock opening the txt file(s) p2
+  // nano function to mock opening the txt file(s) p2
   closePopupBtn.addEventListener('click', () => {
     popup.classList.add('hidden');
     popup.classList.remove('nano-mode');
   });
 
-// boot-up sequence
+  // boot-up sequence
   function playBootSequence() {
     const bootMessages = [
       "[ OK ] Initializing system services...",
@@ -401,7 +401,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
     ];
     typeLines(bootMessages, renderMainTerminal);
   }
-// arrinving to the site notation -- navigation output -- 
+  // arrinving to the site notation -- navigation output -- 
   function renderMainTerminal() {
     const mainTerminalContent = [
       "jac@techhost:~$ cd home",
@@ -429,7 +429,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
         <li><span>site_nav.txt</span></li>
       `;
       terminal.appendChild(ul);
-// cursor blinking animation
+      // cursor blinking animation
       const prompt = document.createElement('p');
       prompt.innerHTML = `jac@techhost:/home$ <span class="cursor">_</span>`;
       terminal.appendChild(prompt);
@@ -450,7 +450,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       }
     });
   }
-// opening folders (dir) -- single + multi files -- 
+  // opening folders (dir) -- single + multi files -- 
   function openSingleFileDirectory(folder) {
     const commands = [
       `jac@techhost:/home$ cd ${folder}`,
@@ -491,7 +491,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       bindFileClicks(folder);
     });
   }
-// pop-up window in termina 
+  // pop-up window in termina 
   function bindFileClicks(folder) {
     terminal.querySelectorAll('.file').forEach(fileEl => {
       fileEl.addEventListener('click', () => {
@@ -501,7 +501,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       });
     });
   }
-// about-me, tech skills, and web portfolio
+  // about-me, tech skills, and web portfolio
   function openPopup(folder, fileName) {
     if (folder === 'about_me') {
       popup.classList.add('nano-mode');
@@ -532,9 +532,10 @@ tech_skills>
 :: PROFESSIONAL EXPERIENCE ::
 -----------------------------
 prof_exp>
-- 3+ years supporting end users onsite and remotely
+- 6+ years supporting end users onsite and remotely
 - Skilled at diagnosing and resolving hardware/software issues
 - Streamlining workflows to improve efficiency and user experience
+- Experienced in developing and designing websites and content-managed platforms
 ----------------------------------------
 :: COMPLETED COURSES & CERTIFICATIONS ::
 ----------------------------------------
@@ -556,7 +557,7 @@ course_certs>
 <img src="Assets/web_portfolio.png" alt="Web Portfolio Preview" />
 <p style="text-align:center;">
   <a href="https://www.jactechknowledge-y.com/" target="_blank" style="color:#00ff90; text-decoration:none;">
-    🖥️ Open Full Website in New Tab
+    Open Full Website in New Tab
   </a>
 </p>`;
     }
