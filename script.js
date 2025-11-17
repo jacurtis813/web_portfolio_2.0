@@ -239,6 +239,7 @@ tracert google.com– Trace network route to destination.
 -----------------
 ` },
     ],
+    // this is for the file contents -- projects content
     projects: [
       {
         name: 'macos_install.txt', content: `
@@ -491,7 +492,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       bindFileClicks(folder);
     });
   }
-  // pop-up window in termina 
+  // pop-up window in terminal
   function bindFileClicks(folder) {
     terminal.querySelectorAll('.file').forEach(fileEl => {
       fileEl.addEventListener('click', () => {
@@ -557,7 +558,7 @@ course_certs>
 <img src="Assets/web_portfolio.png" alt="Web Portfolio Preview" />
 <p style="text-align:center;">
   <a href="https://www.jactechknowledge-y.com/" target="_blank" style="color:#00ff90; text-decoration:none;">
-    Open Full Website in New Tab
+    Open Website in New Tab
   </a>
 </p>`;
     }
