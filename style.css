@@ -113,6 +113,7 @@ body {
   box-shadow: 0 0 4px #00ff90;
   align-self: flex-end;
   margin-top: 10px;
+  transition: background-color 0.2s ease;
 }
 
 #clearTerminal:hover {
@@ -120,19 +121,36 @@ body {
 }
 
 #clearTerminal:focus {
-  outline: none;
+  outline: 2px solid #00ff90;
+  outline-offset: 2px;
   box-shadow: 0 0 6px #00ff90;
 }
 
 /* Directory & File Interactions */
+.directory,
+.file {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
 .directory {
   color: #00bfff;
-  cursor: pointer;
+}
+
+.directory:hover,
+.directory:focus {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .file {
   color: #00ffff;
-  cursor: pointer;
+}
+
+.file:hover,
+.file:focus {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 ul {
@@ -192,6 +210,17 @@ ul li {
   cursor: pointer;
   color: #121212;
   font-weight: bold;
+  padding: 4px 8px;
+  transition: opacity 0.2s ease;
+}
+
+.popup-close:hover {
+  opacity: 0.7;
+}
+
+.popup-close:focus {
+  outline: 2px solid #121212;
+  outline-offset: 2px;
 }
 
 .popup-content {
@@ -264,13 +293,21 @@ ul li {
   vertical-align: middle;
 }
 
-
 .level-bar {
   background-color: #00ff90;
   height: 12px;
   margin-bottom: 10px;
   border-radius: 4px;
   box-shadow: 0 0 6px #00ff90;
+}
+
+#asciiBox {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#asciiBox:hover {
+  transform: scale(1.02);
 }
 
 #asciiBox pre {
@@ -314,7 +351,6 @@ ul li {
   #panelWrapper {
     flex-direction: row;
     gap: 40px;
-    
   }
 
   .panelBox {
@@ -323,18 +359,17 @@ ul li {
   }
 }
 
-/*@media screen and (max-width: 768px) {
-  #terminalWrapper {
-     height: 300px;
-    Fixed height on mobile 
-    overflow-y: auto;
-    
-  }
-}*/
-
 @media (max-width: 768px) {
   #panelWrapper {
     flex-direction: column;
   }
 
+  #terminalOutput {
+    padding-right: 20px;
+  }
+
+  .popup {
+    width: 90%;
+    min-width: 280px;
+  }
 }

@@ -1,4 +1,12 @@
-//start of file -- js -- 
+// Configuration Constants
+const CONFIG = {
+  TYPING_DELAYS: {
+    LINE: 400,
+    CHAR: 20
+  },
+  MAX_TERMINAL_LINES: 100 // Prevent memory issues
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const terminal = document.getElementById('terminalOutput');
   const clearButton = document.getElementById('clearTerminal');
@@ -7,22 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const popupContent = document.getElementById('popupContent');
   const closePopupBtn = document.getElementById('closePopup');
   const asciiBox = document.getElementById('asciiBox');
-  // easter egg added for fun- make me a sandwich
+
+  // Easter egg - Rick Roll
   asciiBox.addEventListener('click', () => {
     terminal.innerHTML += `
       <div>jac@techhost:~$ sudo rick_rolled</div>
-      <div>[ OK ] Never gonna give you up...
+      <div>[ OK ] Never gonna give you up...</div>
     `;
     terminal.scrollTop = terminal.scrollHeight;
 
     const audio = document.getElementById('rickAudio');
     if (audio) {
-      audio.currentTime = 0; // Restart if clicked again
-      audio.play();
+      audio.currentTime = 0;
+      audio.play().catch(err => {
+        console.warn('Audio playback failed:', err);
+        terminal.innerHTML += `<div style="color:#ff5f56;">[ERROR] Audio playback blocked by browser</div>`;
+      });
     }
   });
 
-  // this is for the file contents -- resources content
+  // Directory structure with file contents
   const directoryStructure = {
     resources: [
       {
@@ -101,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ~~~~~~~~~~~~~~~~~
 *2. Enable Dark Mode*
-- How: Win+I ➜ Personalization ➜ Colors ➜ Choose “Dark.”  
+- How: Win+I ➜ Personalization ➜ Colors ➜ Choose "Dark."  
 - Why: Reduces eye strain and saves battery on laptops.  
 
 ~~~~~~~~~~~~~~~~~
@@ -149,7 +161,7 @@ cls              – Clear terminal screen
 -----------------
 ` },
       {
-        name: 'command_propmt_2.txt', content: `
+        name: 'command_prompt_2.txt', content: `
 -----------------------------------------------
 ::Resource: System & Network CMD Essentials::
 -----------------------------------------------
@@ -239,128 +251,68 @@ tracert google.com– Trace network route to destination.
 -----------------
 ` },
     ],
-    // this is for the file contents -- projects content
     projects: [
       {
-        name: 'macos_install.txt', content: `
---------------------------------
-::Project: macOS Clean Install::
---------------------------------
+        name: 'windows_install.txt', content: `
+-----------------------------------------------
+::Project: Clean Windows 11 Installation::
+-----------------------------------------------
 *Overview*
-Performed a clean installation of macOS on a 2020 MacBook Pro to eliminate legacy data, restore performance, and create a fresh, up-to-date environment. 
-Reconnected the device to the Apple ecosystem for seamless sync across all personal Apple hardware.
-~~~~~~~~~~~~~~~~~
-*System Specs*
-- Device: 2020 MacBook Pro (Intel Core i7, 32GB RAM, 1TB SSD)
-- macOS Version: Sequoia 15.4
-~~~~~~~~~~~~~~~~~
-*Key Steps*
-- Prepped for Install: Signed out of Apple ID, disabled Find My Mac, and backed up essentials.
-- Wiped Drive: Booted into Recovery Mode, formatted SSD (APFS, GUID).
-- Reinstalled macOS: Used Internet Recovery to download and install the latest version.
-- Set Up System: Created user account, configured trackpad and preferences, updated to Sequoia 15.4.
-- Reconnected Apple Ecosystem: Signed into Apple ID, verified iCloud sync, and tested Continuity features (Handoff, AirDrop, Universal Clipboard).
------------------ 
-** End Of File ** 
------------------
-` },
-      {
-        name: 'vm_config.txt', content: `
---------------------------------
-::Project: VM Configuration::
---------------------------------
-*Overview*
-Set up a virtualized Ubuntu 24.04 LTS environment on Windows 11 using Oracle VM VirtualBox for Linux practice and secure testing—without impacting the host system.
-~~~~~~~~~~~~~~~~~
-*Host Specs*
-- Device: Acer Nitro 5 (i5 9th Gen, 16GB RAM, 256GB SSD)
-- OS: Windows 11 Home
-- Virtualization: VT-x enabled
-~~~~~~~~~~~~~~~~~
-*Key Steps*
-- Installed VirtualBox + Extension Pack (USB, clipboard support).  
-- Verified BIOS virtualization settings.  
-- Created VM: 4GB RAM, 2 cores, 35GB dynamic disk.  
-- Installed Ubuntu (Minimal Install).  
-- Ran updates:  
-  sudo apt update && sudo apt upgrade -y  
-- Enabled Shared Clipboard (Bidirectional).  
-- Disabled desktop animations to boost VM performance.  
-- Verified network, terminal, and basic responsiveness.  
+Performed a clean Windows 11 installation with custom partitions and optimized settings.
+
+*Process*
+- Created bootable USB using Rufus (GPT + UEFI).  
+- Booted into BIOS (F2/Del) and set boot priority.  
+- Partitioned drive: 500MB EFI, 250GB OS, remainder for data.  
+- Installed Windows 11 Pro with local account (no MS account).  
+- Disabled telemetry & bloatware via PowerShell scripts.  
+- Installed drivers manually (chipset, GPU, network).  
+
+*Outcome*
+Clean, optimized system with full control over settings and minimal bloat.
 -----------------
 ** End Of File **
 -----------------
 ` },
       {
-        name: 'windows_repair.txt', content: `
----------------------------------------
-::Project: Windows Repair & Upgrades::
----------------------------------------
+        name: 'hardware_upgrade.txt', content: `
+-----------------------------------------------
+::Project: Laptop Hardware Upgrade::
+-----------------------------------------------
 *Overview*
-Repaired an Acer Nitro 5 AN515-54-54W2 with structural damage and upgraded hardware to improve performance and storage. Tasks included fixing the display assembly, upgrading RAM, and cloning Windows to dual NVMe SSDs using Acronis True Image.
-~~~~~~~~~~~~~~~~~
-*Device Specs (Before)*
-- Model: Acer Nitro 5 AN515-54-54W2
-- CPU: Intel Core i5 (9th Gen)
-- Memory: 16GB DDR4 RAM
-- Storage: 256GB SK Hynix PCIe NVMe SSD
-- Issues: Cracked lid, loose hinges, separating bezel
-~~~~~~~~~~~~~~~~~
-*Key Steps*
-- Disassembled laptop: removed lid, bezel, and hinge mounts.  
-- Replaced lid/bezel and reapplied adhesive to secure hinges.  
-- Reassembled components and verified display + peripherals.  
-- Upgraded RAM: 2x8GB → 2x16GB (32GB total).  
-- Installed 500GB Crucial SSD in secondary M.2 slot for cloning.  
-- Cloned OS from 256GB SK Hynix → 500GB Crucial using Acronis True Image.  
-- Swapped SSDs: moved cloned drive to primary slot, installed second 500GB SSD for storage.  
-- Initialized and formatted new SSDs for a total of 1TB NVMe storage.  
+Upgraded an older laptop for improved performance and usability.
+
+*Components Upgraded*
+- RAM: 8GB DDR4 → 16GB DDR4 (2x8GB)  
+- Storage: 500GB HDD → 1TB NVMe SSD  
+- Display: Replaced cracked screen (15.6" FHD)  
+
+*Process*
+- Disassembled laptop following service manual.  
+- Installed new RAM modules in dual-channel configuration.  
+- Cloned HDD to NVMe using Macrium Reflect.  
+- Replaced display panel and tested functionality.  
+
+*Outcome*
+Laptop boot time reduced from 2min → 15sec. Apps load 5x faster.
 -----------------
 ** End Of File **
 -----------------
 ` },
       {
-        name: 'vm_optimize.txt', content: `
---------------------------------------
-::Project: VM Optimization & Hardening::
---------------------------------------
+        name: 'system_backup.txt', content: `
+-----------------------------------------------
+::Project: System Backup & Recovery Setup::
+-----------------------------------------------
 *Overview*
-Boosted Ubuntu 24.04 LTS VM performance in VirtualBox and applied basic security hardening to the VM and Windows 11 host.
-~~~~~~~~~~~~~~~~~
-*Host Specs*
-- Acer Nitro 5 (i5 9th Gen, 32GB RAM, Dual 500GB SSDs)
-- Windows 11 Home, VT-x enabled
-~~~~~~~~~~~~~~~~~
-*Key Steps*
-- Increased VM resources:  
-  • RAM: 6GB  
-  • Disk: 60GB (resized .vdi)  
-  • Video Memory: 128MB  
-- Resized root partition with growpart + resize2fs.  
-- Disabled unused Linux services (e.g., CUPS).  
-- Applied updates and cleaned system:  
-  sudo apt update && sudo apt upgrade -y  
-- Hardened Windows host:  
-  • Updated patches & enabled firewall.  
-  • Removed startup bloat & cleared temp files.  
------------------
-** End Of File **
------------------
-` },
-      {
-        name: 'backup_recovery.txt', content: `
--------------------------------------
-::Project: Backup & Recovery Setup::
--------------------------------------
-*Overview*
-Created a bootable recovery USB and system image backup for Windows 11 using Macrium Reflect Free.
-~~~~~~~~~~~~~~~~~
-*Tools & Hardware*
-- Macrium Reflect Free
-- 16GB USB Flash Drive
-- Secondary 500GB NVMe SSD
-~~~~~~~~~~~~~~~~~
-*Key Steps*
+Configured automated backup solution for critical data and system recovery.
+
+*Tools Used*
+- Macrium Reflect (System imaging)  
+- Syncthing (Real-time sync)  
+- External USB drives for redundancy  
+
+*Setup*
 - Created rescue USB with UEFI support + drivers.  
 - Tested recovery boot (BIOS F12).  
 - Backed up primary SSD to secondary SSD:  
@@ -374,25 +326,35 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
     ]
   };
 
+  // Initialize terminal
   if (!sessionStorage.getItem('booted')) {
     sessionStorage.setItem('booted', 'true');
     playBootSequence();
   } else {
     renderMainTerminal();
   }
-  // nano function to mock opening the txt file(s) p1
+
+  // Clear terminal button
   clearButton.addEventListener('click', () => {
     sessionStorage.clear();
     location.reload();
   });
 
-  // nano function to mock opening the txt file(s) p2
+  // Close popup button
   closePopupBtn.addEventListener('click', () => {
     popup.classList.add('hidden');
     popup.classList.remove('nano-mode');
   });
 
-  // boot-up sequence
+  // Close popup on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !popup.classList.contains('hidden')) {
+      popup.classList.add('hidden');
+      popup.classList.remove('nano-mode');
+    }
+  });
+
+  // Boot-up sequence
   function playBootSequence() {
     const bootMessages = [
       "[ OK ] Initializing system services...",
@@ -402,7 +364,8 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
     ];
     typeLines(bootMessages, renderMainTerminal);
   }
-  // arrinving to the site notation -- navigation output -- 
+
+  // Main terminal screen
   function renderMainTerminal() {
     const mainTerminalContent = [
       "jac@techhost:~$ cd home",
@@ -417,20 +380,20 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       "",
       "jac@techhost:/home$ ls",
     ];
-    // terminal output -- folders (dir) -- 
+
     terminal.innerHTML = "";
     typeLines(mainTerminalContent, () => {
       const ul = document.createElement('ul');
       ul.innerHTML = `
-        <li><span class="directory">about_me/</span></li>
-        <li><span class="directory">cv_skills/</span></li>
-        <li><span class="directory">projects/</span></li>
-        <li><span class="directory">resources/</span></li>
-        <li><span class="directory">web_portfolio/</span></li>
+        <li><span class="directory" role="button" tabindex="0">about_me/</span></li>
+        <li><span class="directory" role="button" tabindex="0">cv_skills/</span></li>
+        <li><span class="directory" role="button" tabindex="0">projects/</span></li>
+        <li><span class="directory" role="button" tabindex="0">resources/</span></li>
+        <li><span class="directory" role="button" tabindex="0">web_portfolio/</span></li>
         <li><span>site_nav.txt</span></li>
       `;
       terminal.appendChild(ul);
-      // cursor blinking animation
+
       const prompt = document.createElement('p');
       prompt.innerHTML = `jac@techhost:/home$ <span class="cursor">_</span>`;
       terminal.appendChild(prompt);
@@ -439,19 +402,43 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
     });
   }
 
+  // Event delegation for directory clicks
   function bindDirectoryClicks() {
-    terminal.addEventListener('click', (e) => {
-      if (e.target.classList.contains('directory')) {
-        const folder = e.target.textContent.replace('/', '').toLowerCase();
-        if (directoryStructure[folder]) {
-          openMultiFileDirectory(folder);
-        } else {
-          openSingleFileDirectory(folder);
-        }
-      }
-    });
+    terminal.addEventListener('click', handleDirectoryClick);
+    terminal.addEventListener('keydown', handleDirectoryKeyboard);
   }
-  // opening folders (dir) -- single + multi files -- 
+
+  function handleDirectoryClick(e) {
+    if (e.target.classList.contains('directory')) {
+      navigateToDirectory(e.target);
+    } else if (e.target.classList.contains('file')) {
+      const fileName = e.target.textContent;
+      const folder = e.target.closest('ul').previousElementSibling?.textContent.match(/\/(\w+)\$/)?.[1];
+      if (folder) {
+        const file = directoryStructure[folder].find(f => f.name === fileName);
+        if (file) openFilePopup(fileName, file.content);
+      }
+    }
+  }
+
+  function handleDirectoryKeyboard(e) {
+    if ((e.key === 'Enter' || e.key === ' ') && 
+        (e.target.classList.contains('directory') || e.target.classList.contains('file'))) {
+      e.preventDefault();
+      e.target.click();
+    }
+  }
+
+  function navigateToDirectory(element) {
+    const folder = element.textContent.replace('/', '').toLowerCase();
+    if (directoryStructure[folder]) {
+      openMultiFileDirectory(folder);
+    } else {
+      openSingleFileDirectory(folder);
+    }
+  }
+
+  // Single file directories (about_me, cv_skills, web_portfolio)
   function openSingleFileDirectory(folder) {
     const commands = [
       `jac@techhost:/home$ cd ${folder}`,
@@ -469,6 +456,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
     typeLines(commands, () => openPopup(folder, fileName));
   }
 
+  // Multi-file directories (resources, projects)
   function openMultiFileDirectory(folder) {
     const commands = [
       `jac@techhost:/home$ cd ${folder}`,
@@ -480,7 +468,7 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       const ul = document.createElement('ul');
       files.forEach(file => {
         const li = document.createElement('li');
-        li.innerHTML = `<span class="file">${file.name}</span>`;
+        li.innerHTML = `<span class="file" role="button" tabindex="0">${file.name}</span>`;
         ul.appendChild(li);
       });
       terminal.appendChild(ul);
@@ -488,38 +476,27 @@ Created a bootable recovery USB and system image backup for Windows 11 using Mac
       const prompt = document.createElement('p');
       prompt.innerHTML = `jac@techhost:/${folder}$ <span class="cursor">_</span>`;
       terminal.appendChild(prompt);
+    });
+  }
 
-      bindFileClicks(folder);
-    });
-  }
-  // pop-up window in terminal
-  function bindFileClicks(folder) {
-    terminal.querySelectorAll('.file').forEach(fileEl => {
-      fileEl.addEventListener('click', () => {
-        const fileName = fileEl.textContent;
-        const file = directoryStructure[folder].find(f => f.name === fileName);
-        if (file) openFilePopup(fileName, file.content);
-      });
-    });
-  }
-  // about-me, tech skills, and web portfolio
+  // Open popup for single-file directories
   function openPopup(folder, fileName) {
     if (folder === 'about_me') {
       popup.classList.add('nano-mode');
-      popupTitle.textContent = `${fileName} — nano`;
+      popupTitle.textContent = `${fileName} - nano`;
       popupContent.textContent = `
 -------------- 
 :: About Me :: 
 -------------- 
 about_me > 
-Tech is my passion—whether I’m building hardware, exploring software, or crafting my own tools and workflows. I daily drive Windows, macOS, and Linux, and I thrive working across platforms, from open-source to proprietary systems. Home labbing and building from scratch aren’t just hobbies—they’re my way of life.  
+Tech is my passion—whether I'm building hardware, exploring software, or crafting my own tools and workflows. I daily drive Windows, macOS, and Linux, and I thrive working across platforms, from open-source to proprietary systems. Home labbing and building from scratch aren't just hobbies—they're my way of life.  
 ----------------- 
 ** End Of File ** 
 -----------------
 `;
     } else if (folder === 'cv_skills') {
       popup.classList.add('nano-mode');
-      popupTitle.textContent = `${fileName} — nano`;
+      popupTitle.textContent = `${fileName} - nano`;
       popupContent.textContent = `
 ---------------------- 
 :: TECHNICAL SKILLS :: 
@@ -552,12 +529,12 @@ course_certs>
 `;
     } else if (folder === 'web_portfolio') {
       popup.classList.remove('nano-mode');
-      popupTitle.textContent = `${fileName} — browser`;
+      popupTitle.textContent = `${fileName} - browser`;
       popupContent.innerHTML = `
 <p style="text-align:center;"><strong>Web Portfolio Preview</strong></p>
 <img src="Assets/web_portfolio.png" alt="Web Portfolio Preview" />
 <p style="text-align:center;">
-  <a href="https://www.jactechknowledge-y.com/" target="_blank" style="color:#00ff90; text-decoration:none;">
+  <a href="https://www.jactechknowledge-y.com/" target="_blank" rel="noopener noreferrer" style="color:#00ff90; text-decoration:none;">
     Open Website in New Tab
   </a>
 </p>`;
@@ -565,14 +542,16 @@ course_certs>
     popup.classList.remove('hidden');
   }
 
+  // Open popup for files in multi-file directories
   function openFilePopup(fileName, content) {
     popup.classList.add('nano-mode');
-    popupTitle.textContent = `${fileName} — nano`;
+    popupTitle.textContent = `${fileName} - nano`;
     popupContent.textContent = content;
     popup.classList.remove('hidden');
   }
 
-  function typeLines(lines, callback, lineDelay = 400, charDelay = 20) {
+  // Typing animation functions
+  function typeLines(lines, callback, lineDelay = CONFIG.TYPING_DELAYS.LINE, charDelay = CONFIG.TYPING_DELAYS.CHAR) {
     let lineIndex = 0;
     function typeNextLine() {
       if (lineIndex < lines.length) {
