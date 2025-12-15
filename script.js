@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // easter egg added for fun- make me a sandwich
   asciiBox.addEventListener('click', () => {
     terminal.innerHTML += `
-      <di>jac@techhost:~$ sudo rick_rolled</div>
+      <div>jac@techhost:~$ sudo rick_rolled</div>
       <div>[ OK ] Never gonna give you up...
     `;
     terminal.scrollTop = terminal.scrollHeight;
