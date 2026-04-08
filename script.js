@@ -380,72 +380,183 @@ exit                → close terminal
     ],
     projects: [
       {
-        name: 'windows_install.txt', content: `
------------------------------------------------
-::Project: Clean Windows 11 Installation::
------------------------------------------------
-*Overview*
-Performed a clean Windows 11 installation with custom partitions and optimized settings.
+        name: 'macOS_install.txt', content: `
+---------------------------------------
+:: macOS Clean Install & Device Sync ::
+---------------------------------------
+*Goal*
+Reset MacBook Pro to a clean, optimized state and restore full Apple ecosystem sync.
 
-*Process*
-- Created bootable USB using Rufus (GPT + UEFI).  
-- Booted into BIOS (F2/Del) and set boot priority.  
-- Partitioned drive: 500MB EFI, 250GB OS, remainder for data.  
-- Installed Windows 11 Pro with local account (no MS account).  
-- Disabled telemetry & bloatware via PowerShell scripts.  
-- Installed drivers manually (chipset, GPU, network).  
+*Key Actions*
+- Signed out of Apple ID + disabled Find My Mac
+- Booted into Recovery (Cmd + R) and wiped SSD (APFS/GUID)
+- Reinstalled latest macOS via Internet Recovery
+- Completed initial setup with local account
+- Updated system to macOS Sequoia 15.4
+- Reconnected Apple ID + re-enabled ecosystem services
 
-*Outcome*
-Clean, optimized system with full control over settings and minimal bloat.
+*Result*
+[ OK ] Clean macOS install (Sequoia 15.4)
+[ OK ] System performance restored
+[ OK ] Full sync across iPhone, iPad, and Apple Watch
+[ OK ] Continuity features verified (Handoff, AirDrop, iCloud)
+
 -----------------
 ** End Of File **
 -----------------
 ` },
       {
-        name: 'hardware_upgrade.txt', content: `
------------------------------------------------
-::Project: Laptop Hardware Upgrade::
------------------------------------------------
-*Overview*
-Upgraded an older laptop for improved performance and usability.
+        name: 'linux_vm_setup.txt', content: `
+-------------------------------------
+:: Virtualization & Linux VM Setup ::
+-------------------------------------
+*Goal*
+Create an isolated Linux environment for learning, testing, and development without impacting the host system.
 
-*Components Upgraded*
-- RAM: 8GB DDR4 → 16GB DDR4 (2x8GB)  
-- Storage: 500GB HDD → 1TB NVMe SSD  
-- Display: Replaced cracked screen (15.6" FHD)  
+*System*
+Host: Windows 11 | i5 (9th Gen) | 16GB RAM | 256GB NVMe
+VM: Ubuntu 24.04 LTS (VirtualBox)
 
-*Process*
-- Disassembled laptop following service manual.  
-- Installed new RAM modules in dual-channel configuration.  
-- Cloned HDD to NVMe using Macrium Reflect.  
-- Replaced display panel and tested functionality.  
+*Key Actions*
+- Installed Oracle VM VirtualBox + Extension Pack
+- Verified VT-x virtualization support in BIOS
+- Created VM (4GB RAM, 2 CPU, 35GB dynamic disk)
+- Installed Ubuntu 24.04 LTS (minimal install)
+- Configured user, hostname, and system settings
+- Ran system updates via terminal (apt update/upgrade)
 
-*Outcome*
-Laptop boot time reduced from 2min → 15sec. Apps load 5x faster.
+*Result*
+[ OK ] Functional Ubuntu VM environment
+[ OK ] Isolated from host system
+[ OK ] Ready for CLI practice, dev work, and testing
+[ OK ] Lightweight + optimized resource usage
+
 -----------------
 ** End Of File **
 -----------------
 ` },
       {
-        name: 'system_backup.txt', content: `
------------------------------------------------
-::Project: System Backup & Recovery Setup::
------------------------------------------------
-*Overview*
-Configured automated backup solution for critical data and system recovery.
+        name: 'windows_pc_upgrade.txt', content: `
+--------------------------------------------
+:: Laptop Repair, Upgrade, & OS Migration ::
+--------------------------------------------
+*Goal*
+Restore structural integrity, improve performance, and migrate OS to faster storage without reinstalling Windows.
 
-*Tools Used*
-- Macrium Reflect (System imaging)  
-- Syncthing (Real-time sync)  
-- External USB drives for redundancy  
+*System*
+Acer Nitro 5 | i5 (9th Gen)
+Upgraded: 32GB RAM | 1TB NVMe (2x500GB)
 
-*Setup*
-- Created rescue USB with UEFI support + drivers.  
-- Tested recovery boot (BIOS F12).  
-- Backed up primary SSD to secondary SSD:  
-  • Compression + verification enabled  
-  • Backup saved to D:\System_Backups  
-- Verified backup integrity and documented process.  
+*Key Actions*
+- Repaired chassis (lid, bezel, hinges, internal mounts)
+- Reassembled display components + verified functionality
+- Upgraded RAM (16GB → 32GB dual-channel)
+- Installed secondary NVMe SSD for OS cloning
+- Cloned Windows using Acronis True Image (manual resize)
+- Reconfigured storage (primary + secondary NVMe setup)
+- Initialized and formatted additional storage drive
+
+*Result*
+[ OK ] Structural damage fully repaired
+[ OK ] System stability restored
+[ OK ] RAM upgraded to 32GB (multitasking + VM ready)
+[ OK ] OS migrated successfully (no reinstall)
+[ OK ] Dual NVMe setup (1TB total storage)
+
+-----------------
+** End Of File **
+-----------------
+` },
+      {
+        name: 'optimize_linux_vm.txt', content: `
+----------------------------------------------
+:: Linux VM Optimization & System Hardening ::
+----------------------------------------------
+*Goal*
+Improve VM performance and apply baseline security hardening across both Linux VM and Windows host.
+
+*System*
+Host: Windows 11 | 32GB RAM | Dual NVMe
+VM: Ubuntu 24.04 LTS (VirtualBox)
+
+*Key Actions*
+- Increased VM resources (RAM 4GB → 6GB, VRAM 128MB, disk 35GB → 60GB)
+- Resized VDI using VBoxManage + expanded Linux partitions (growpart, resize2fs)
+- Verified system resources (RAM, CPU, disk allocation)
+- Scanned open ports and disabled unnecessary services (cups)
+- Applied updates and cleaned system packages (apt update/upgrade/autoremove)
+- Hardened Windows host (updates, Defender scan, firewall, startup cleanup)
+
+*Result*
+[ OK ] VM performance improved (RAM + storage optimized)
+[ OK ] Full disk expansion configured and verified
+[ OK ] Unnecessary services disabled (reduced attack surface)
+[ OK ] Host system updated and secured
+[ OK ] Environment ready for dev + security labs
+
+-----------------
+** End Of File **
+-----------------
+` },
+      {
+        name: 'backup_and_recovery.txt', content: `
+--------------------------------------------
+:: System Backup & Recovery Configuration ::
+--------------------------------------------
+*Goal*
+Implement a reliable backup and recovery solution to protect system against failure or data loss.
+
+*System*
+Windows 11 | Dual NVMe SSD (500GB + 500GB)
+Tools: Macrium Reflect | USB Recovery Media
+
+*Key Actions*
+- Installed Macrium Reflect and created bootable rescue USB (Windows RE)
+- Configured UEFI-compatible recovery environment with required drivers
+- Tested recovery media via BIOS boot menu (F12)
+- Verified SSD detection and recovery tools functionality
+- Created full system image (primary → secondary SSD)
+- Enabled compression + backup verification
+- Documented backup location and recovery process
+
+*Result*
+[ OK ] Bootable recovery media created + tested
+[ OK ] Full system image successfully captured
+[ OK ] Backup integrity verified
+[ OK ] Rapid recovery path established
+[ OK ] System protected against failure or corruption
+
+-----------------
+** End Of File **
+-----------------
+` },
+       {
+        name: 'zorin_os_setup.txt', content: `
+--------------------------------
+:: Zorin OS Core – Linux (#1) ::
+--------------------------------
+*Goal*
+Build a lightweight Linux system focused on entertainment, productivity, and a clean daily driver experience.
+
+*System*
+Zorin OS Core | Minimal Install | Older/Mid-range Hardware
+
+*Key Actions*
+- Installed Zorin OS (USB + balenaEtcher, Secure Boot disabled)
+- Performed full system updates (apt + flatpak)
+- Customized desktop (dark mode, panel layout, icons, fonts)
+- Installed apps (SuperTux, SuperTuxKart, Kapman, RustDesk, FreeTube, Firefox)
+- Built custom launchers using YAD (GameHub + OfficeHub scripts)
+- Created .desktop entries for apps and custom scripts
+- Configured clean panel layout + system monitoring tools
+
+*Result*
+[ OK ] Lightweight Linux system deployed
+[ OK ] Retro gaming + media environment configured
+[ OK ] Custom app launchers (GameHub + OfficeHub)
+[ OK ] Clean, responsive desktop experience
+[ OK ] Fully functional daily driver setup
+
 -----------------
 ** End Of File **
 -----------------
@@ -612,11 +723,13 @@ Configured automated backup solution for critical data and system recovery.
       popup.classList.add('nano-mode');
       popupTitle.textContent = `${fileName} - nano`;
       popupContent.textContent = `
--------------- 
+--------------
 :: About Me :: 
--------------- 
+--------------
 about_me > 
-Tech is my passion—whether I'm building hardware, exploring software, or crafting my own tools and workflows. I daily drive Windows, macOS, and Linux, and I thrive working across platforms, from open-source to proprietary systems. Home labbing and building from scratch aren't just hobbies—they're my way of life.  
+Hey, I’m Justin, and I’m passionate about all things tech. I enjoy tinkering with hardware and creating with software. 
+Lately, I’ve been diving into Linux distros on older hardware and exploring open-source and big tech alternative software. 
+I love building custom setups, tools, and websites.
 ----------------- 
 ** End Of File ** 
 -----------------
@@ -625,16 +738,16 @@ Tech is my passion—whether I'm building hardware, exploring software, or craft
       popup.classList.add('nano-mode');
       popupTitle.textContent = `${fileName} - nano`;
       popupContent.textContent = `
----------------------- 
-:: TECHNICAL SKILLS :: 
----------------------- 
+----------------------
+:: Technical Skills :: 
+----------------------
 tech_skills>
 - Hardware: PC/Laptop repairs, upgrades (RAM, SSD, displays), system builds, troubleshooting
 - Software & OS: Windows 10/11, Linux, macOS, Syncthing, pCloud, Nextcloud, Microsoft 365
 - Web & Automation Tools: SharePoint site design, Power Automate workflows, basic HTML/CSS/JS
 - Networking & Security: Basic network diagnostics, system hardening, firewall configuration
 -----------------------------
-:: PROFESSIONAL EXPERIENCE ::
+:: Professional Experience ::
 -----------------------------
 prof_exp>
 - 6+ years supporting end users onsite and remotely
@@ -642,16 +755,16 @@ prof_exp>
 - Streamlining workflows to improve efficiency and user experience
 - Experienced in developing and designing websites and content-managed platforms
 ----------------------------------------
-:: COMPLETED COURSES & CERTIFICATIONS ::
+:: Completed Courses & Certificates ::
 ----------------------------------------
 course_certs>
 - CompTIA ITF+
-- CompTIA A+
 - CompTIA Tech+
+- CompTIA A+
 - Network Fundamentals
 - Cybersecurity Fundamentals
 ----------------- 
-** END OF FILE ** 
+** End Of File ** 
 -----------------
 `;
     } else if (folder === 'web_portfolio') {
