@@ -39,42 +39,47 @@ document.addEventListener('DOMContentLoaded', () => {
     resources: [
       {
         name: 'comparing_OS.txt', content: `
---------------------------------------------
-::Resource: OS Comparison – Win, macOS, Linux::
---------------------------------------------
+-------------------------------------
+::OS Comparison – Win, macOS, Linux::
+-------------------------------------
 *Kernel Type*
 - Win: Hybrid  
 - macOS: XNU (Hybrid)  
-- Linux: Monolithic  
+- Linux: Monolithic
+
 ~~~~~~~~~~~~~~~~~
 *File Systems*
 - Win: NTFS, FAT32  
 - macOS: HFS+, APFS  
-- Linux: ext3, ext4  
+- Linux: ext3, ext4
+
 ~~~~~~~~~~~~~~~~~
 *User Interface*
 - Win: Explorer  
 - macOS: Aqua  
-- Linux: GNOME, KDE, XFCE  
+- Linux: GNOME, KDE, XFCE
+
 ~~~~~~~~~~~~~~~~~
 *Customization*
 - Win: Limited  
 - macOS: Minimal  
-- Linux: Highly customizable  
+- Linux: Highly customizable
+
 ~~~~~~~~~~~~~~~~~
 *Gaming*
 - Win: Best (DirectX)  
 - macOS: Limited library  
-- Linux: Steam Play, Proton improving  
+- Linux: Steam Play, Proton improving
+
 -----------------
 ** End Of File **
 -----------------
 ` },
       {
         name: 'windows_10_11.txt', content: `
-------------------------------------------
-::Resource: Win 10 vs Win 11 – Top 5 Tasks::
-------------------------------------------
+--------------------------------
+::Win10 vs Win11 – Top 5 Tasks::
+--------------------------------
 *Task 1: Settings App*
 - Win10: Win+I ➜ System, Devices, Network, Update & Security.  
 - Win11: Win+I ➜ Redesigned layout (Bluetooth & Devices, Network, Windows Update).  
@@ -104,9 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
 ` },
       {
         name: 'windows_11_end_users.txt', content: `
------------------------------------------------
-::Resource: Win11 Tips & Tricks – Top 5 Features::
------------------------------------------------
+----------------------------------------
+::Win11 Tips & Tricks – Top 5 Features::
+----------------------------------------
 *1. Move Start Button*
 - How: Right-click Taskbar ➜ Taskbar settings ➜ Taskbar behaviors ➜ Align Left or Center.  
 - Why: Restores classic Start menu position for familiarity.  
@@ -136,25 +141,32 @@ document.addEventListener('DOMContentLoaded', () => {
 ` },
       {
         name: 'command_prompt_1.txt', content: `
-------------------------------------------
-::Resource: Common CMD File/Folder Commands::
-------------------------------------------
+--------------------------------------
+::Windows CMD File / Folder Commands::
+--------------------------------------
 *Navigation*
-cd foldername    – Change directory  
-cd .. / cd ../.. – Move up 1 or 2 levels  
-dir              – List files & folders  
-tree /f          – Show directory tree w/files  
+cd foldername     → change directory
+cd ..             → go up one level
+cd ../..          → go up two levels
+
+dir               → list files/folders
+tree /f           → show directory structure
 
 ~~~~~~~~~~~~~~~~~
-*File & Folder Management*
-mkdir name       – Create folder  
-echo text > file – Create file w/content  
-copy file dest   – Copy file to new location  
-move file dest   – Move file to new location  
-ren old new      – Rename a file  
-del file         – Delete a file  
-rmdir folder /S/Q– Delete folder & contents  
-cls              – Clear terminal screen  
+*File & Directory*
+mkdir name        → create folder
+echo text > file  → create file with content
+
+copy file dest    → copy file
+move file dest    → move file
+ren old new       → rename file
+
+del file          → delete file
+rmdir /S /Q name  → delete folder + contents
+
+~~~~~~~~~~~~~~~~~
+*System:
+cls               → clear terminal
 
 -----------------
 ** End Of File **
@@ -162,57 +174,66 @@ cls              – Clear terminal screen
 ` },
       {
         name: 'command_prompt_2.txt', content: `
------------------------------------------------
-::Resource: System & Network CMD Essentials::
------------------------------------------------
-*System Commands*
-systeminfo        – View system details (OS, hardware, updates).  
-tasklist          – List running processes + PIDs.  
-taskkill /F /IM app.exe – Force close app (e.g., notepad.exe).  
-sfc /scannow      – Scan & repair system files.  
-shutdown /r /t 0  – Restart computer immediately.  
+-----------------------------------
+::System & Network CMD Essentials::
+-----------------------------------
+*System*
+systeminfo            → view system details
+tasklist              → list running processes + PIDs
+taskkill /F /IM app   → force close application
+
+sfc /scannow          → scan + repair system files
+shutdown /r /t 0      → restart system immediately
 
 ~~~~~~~~~~~~~~~~~
-*Network Commands*
-ping google.com   – Test network connectivity.  
-ipconfig /all     – View full network configuration.  
-ipconfig /flushdns– Clear DNS cache.  
-netstat -an       – Show active connections & listening ports.  
-tracert google.com– Trace network route to destination.  
+*Network*
+ping google.com       → test connectivity
+
+ipconfig /all         → view network configuration
+ipconfig /flushdns    → clear DNS cache
+
+netstat -an           → show active connections + ports
+tracert google.com    → trace route to destination
 
 -----------------
 ** End Of File **
 -----------------
 ` },
       {
-        name: 'windows_ps_1.txt', content: `
------------------------------------------------
-::Resource: File & Directory Management (CMD vs PS)::
------------------------------------------------
+        name: 'windows_powershell_1.txt', content: `
+-------------------------------------------
+::File & Directory Management (CMD vs PS)::
+-------------------------------------------
 *Show Current Directory*
 - CMD: cd  
 - PS:  Get-Location  
 
+~~~~~~~~~~~~~~~~~
 *List Files & Folders*
 - CMD: dir  
 - PS:  Get-ChildItem  
 
+~~~~~~~~~~~~~~~~~
 *Change Directory*
 - CMD: cd foldername  
 - PS:  Set-Location foldername  
 
+~~~~~~~~~~~~~~~~~
 *Create Folder/File*
 - CMD: mkdir name | echo. > file.txt  
 - PS:  New-Item -ItemType Directory|File -Path name  
 
+~~~~~~~~~~~~~~~~~
 *Rename/Move/Delete*
 - CMD: ren old new | move file dest | del file  
 - PS:  Rename-Item old -NewName new | Move-Item | Remove-Item  
 
+~~~~~~~~~~~~~~~~~
 *View File Contents*
 - CMD: type file.txt  
 - PS:  Get-Content file.txt  
 
+~~~~~~~~~~~~~~~~~
 *Clear Screen*
 - CMD: cls  
 - PS:  Clear-Host  
@@ -222,29 +243,135 @@ tracert google.com– Trace network route to destination.
 -----------------
 ` },
       {
-        name: 'windows_ps_2.txt', content: `
------------------------------------------------
-::Resource: Network Commands (CMD vs PS)::
------------------------------------------------
+        name: 'windows_powershell_2.txt', content: `
+--------------------------------
+::Network Commands (CMD vs PS)::
+--------------------------------
 *View Wireless Adapter Info*
 - CMD: netsh wlan show interfaces  
 - PS:  Get-NetAdapter -Name 'Wi-Fi'  
 
+~~~~~~~~~~~~~~~~~
 *Check Network Config*
 - CMD: ipconfig /all  
 - PS:  Get-NetIPConfiguration  
 
+~~~~~~~~~~~~~~~~~
 *Flush DNS Cache*
 - CMD: ipconfig /flushdns  
 - PS:  Clear-DnsClientCache  
 
+~~~~~~~~~~~~~~~~~
 *Ping a Website*
 - CMD: ping google.com  
 - PS:  Test-Connection google.com  
 
+~~~~~~~~~~~~~~~~~
 *Trace Network Route*
 - CMD: tracert google.com  
 - PS:  Test-NetConnection google.com -TraceRoute  
+
+-----------------
+** End Of File **
+-----------------
+` },
+      {
+        name: 'linux_dd_setup.txt', content: `
+----------------------------
+::Linux Daily Driver Setup::
+----------------------------
+*OS*
+Windows 11 → Zorin OS Lite (XFCE)
+- Lightweight, low resource usage
+- Ideal for budget hardware
+
+~~~~~~~~~~~~~~~~~
+*Productivity*
+MS 365 → LibreOffice
+- Writer / Calc / Impress
+- Free + multi-format support
+
+PDF:
+Adobe → Okular + Libre Draw + PDF Arranger
+
+~~~~~~~~~~~~~~~~~
+*Communication*
+Outlook → Mailfence  
+Gmail → Proton Mail  
+
+Teams → Jitsi + Element  
+SMS → Signal  
+
+~~~~~~~~~~~~~~~~~
+*Storage*
+OneDrive → pCloud  
+
+File Server:
+- python3 http.server + Syncthing
+- Local-first, full control
+
+~~~~~~~~~~~~~~~~~
+*Editing*
+VS Code → Geany  
+Clipchamp → OpenShot  
+WavePad → Audacity  
+
+~~~~~~~~~~~~~~~~~
+*Media*
+WMP → VLC  
+YouTube → FreeTube  
+Spotify → gPodder  
+
+~~~~~~~~~~~~~~~~~
+*Remote Desk*
+AnyDesk → RustDesk  
+
+-----------------
+** End Of File **
+-----------------
+` },
+      {
+        name: 'linux_terminal_commands.txt', content: `
+---------------------------
+::Linux Terminal Commands::
+---------------------------
+*Navigation*
+cd folder_name      → change directory
+cd ..               → go up one level
+cd ../..            → go up two levels
+
+ls                  → list files/folders
+ls -l               → detailed view
+ls -a               → show hidden files
+
+pwd                 → show current location
+
+tree                → view folder structure
+tree -f             → show full paths
+
+~~~~~~~~~~~~~~~~~
+*File & Directory*
+mkdir folder_name   → create folder
+touch file.txt      → create empty file
+
+cp file dest/       → copy file
+mv file dest/       → move file
+mv old new          → rename file
+
+rm file.txt         → delete file ⚠️
+rmdir folder_name   → delete empty folder
+
+~~~~~~~~~~~~~~~~~
+*File View & Edit*
+cat file.txt        → display file contents
+
+nano file.txt       → edit in terminal
+gedit file.txt      → open GUI editor
+
+~~~~~~~~~~~~~~~~~
+*System*
+clear               → clear terminal
+exit                → close terminal
 
 -----------------
 ** End Of File **
