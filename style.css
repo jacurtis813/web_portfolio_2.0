@@ -303,12 +303,13 @@ ul li {
 
 #asciiBox {
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: none;
 }
 
+/* REMOVE FOR NOW
 #asciiBox:hover {
-  transform: scale(1.02);
-}
+  transform: none;
+}*/
 
 #asciiBox pre {
   font-size: 0.85rem;
